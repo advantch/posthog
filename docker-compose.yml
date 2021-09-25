@@ -17,7 +17,7 @@ services:
             dockerfile: docker/traefik/Dockerfile
         image: production_traefik
         depends_on:
-            - django
+            - web
         volumes:
             - production_traefik:/etc/traefik/acme:z
         ports:
