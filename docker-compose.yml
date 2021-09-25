@@ -17,9 +17,9 @@ services:
        #     dockerfile: docker/traefik/Dockerfile
        # image: production_traefik
        # depends_on:
-            - web
+           # - web
         #volumes:
-            - production_traefik:/etc/traefik/acme:z
+            #- production_traefik:/etc/traefik/acme:z
         #ports:
         #- "0.0.0.0:80:80"
         #- "0.0.0.0:443:443"
