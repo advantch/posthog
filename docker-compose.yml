@@ -21,6 +21,8 @@ services:
             REDIS_URL: redis://redis:6379/
             SECRET_KEY: <randomly generated secret key>
         image: posthog/posthog:latest
+        env_file:
+            - ./.envs/.production/.posthog
         links:
             - db:db
             - redis:redis

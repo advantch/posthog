@@ -1,6 +1,7 @@
 venv
 env
 .venv
+.envs/.production/*
 *.pyc
 __pycache__/
 staticfiles
