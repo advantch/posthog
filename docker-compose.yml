@@ -20,9 +20,9 @@ services:
             - django
         volumes:
             - production_traefik:/etc/traefik/acme:z
-    ports:
-      - "0.0.0.0:80:80"
-      - "0.0.0.0:443:443"
+        ports:
+        - "0.0.0.0:80:80"
+        - "0.0.0.0:443:443"
     web:
         container_name: posthog_web
         depends_on:
