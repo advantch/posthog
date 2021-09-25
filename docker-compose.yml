@@ -15,7 +15,7 @@ services:
         build:
             context: .
             dockerfile: docker/traefik/Dockerfile
-        image: advantch_production_traefik
+        image: production_traefik
         depends_on:
             - django
         volumes:
@@ -43,4 +43,5 @@ services:
             - 80:8000
 volumes:
     postgres-data:
+    production_traefik: {}
 version: '3'
