@@ -11,6 +11,18 @@ services:
     redis:
         container_name: posthog_redis
         image: redis:6-alpine
+    traefik:
+        build:
+            context: .
+            dockerfile: docker/traefik/Dockerfile
+        image: advantch_production_traefik
+        depends_on:
+            - django
+        volumes:
+            - production_traefik:/etc/traefik/acme:z
+    ports:
+      - "0.0.0.0:80:80"
+      - "0.0.0.0:443:443"
     web:
         container_name: posthog_web
         depends_on:
@@ -19,7 +31,7 @@ services:
         environment:
             DATABASE_URL: postgres://posthog:posthog@db:5432/posthog
             REDIS_URL: redis://redis:6379/
-            SECRET_KEY: <randomly generated secret key>
+            #SECRET_KEY: <randomly generated secret key>
         image: posthog/posthog:latest
         env_file:
             - ./.envs/.production/.posthog
