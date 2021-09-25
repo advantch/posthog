@@ -11,18 +11,18 @@ services:
     redis:
         container_name: posthog_redis
         image: redis:6-alpine
-    traefik:
-        build:
-            context: .
-            dockerfile: docker/traefik/Dockerfile
-        image: production_traefik
-        depends_on:
+    #traefik:
+     #   build:
+      #      context: .
+       #     dockerfile: docker/traefik/Dockerfile
+       # image: production_traefik
+       # depends_on:
             - web
-        volumes:
+        #volumes:
             - production_traefik:/etc/traefik/acme:z
-        ports:
-        - "0.0.0.0:80:80"
-        - "0.0.0.0:443:443"
+        #ports:
+        #- "0.0.0.0:80:80"
+        #- "0.0.0.0:443:443"
     web:
         container_name: posthog_web
         depends_on:
